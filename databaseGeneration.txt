@@ -1,0 +1,7 @@
+CREATE KEYSPACE nodeTask WITH replication = {'class' : 'SimpleStrategy', 'replication_factor' : 3};
+
+USE nodetask;
+
+CREATE TABLE personal_cards (id text, dictionary_id text, word text, translate text, word_image text, translation_image  text, description text, deleted tinyint, created_at timestamp, updated_at timestamp, PRIMARY KEY (id, dictionary_id));
+
+CREATE TABLE personal_dictionaries (id text, user_id text, name text, native_language_id smallint, study_language_id smallint, premium tinyint, deleted tinyint, created_at timestamp, updated_at timestamp, type int, code text, PRIMARY KEY (id, user_id));

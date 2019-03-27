@@ -1,0 +1,22 @@
+version: '2.1'
+
+services:
+  node-task:
+    build: ./node-task
+    container_name: node-server
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+    depends_on:
+     - scylla-server
+
+  scylla-server:
+    build: ./scylla-server
+    ports:
+      - 7000-7001:7000-7001
+      - 9160:9160
+      - 9180:9180
+      - 10000:10000
+      - 9042:9042
+    container_name: scylla-server
